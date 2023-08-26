@@ -1,0 +1,109 @@
+{% extends "user/layout.html"%}
+
+{% block content%}
+<div class="row">
+    <div class="col-6 text-white my-5">
+        <h1 >User Registration</h1>
+        <hr style="border:5px solid white; ">
+        <h4 class="text-info"> NEW USER REGISTRATION </h4>
+           <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> Please take a few moment to register. 
+            You will need this information to access your account 
+            in the future(*) are the required fields.
+         </p>
+        <hr style="border:5px solid white;">
+
+    </div>
+    
+    <div class="col-5 my-5 prof" justify-content-right>
+        <form action="/login/" method="POST">
+            {{signupform.csrf_token}}
+        <div class="row">
+            <div class="col-6">
+                <p class="text-white">{{signupform.firstname.label}} :</p>
+                {{signupform.firstname(class_="form-control border-info",placeholder="fullname")}}
+            </div>
+
+            <div class="col-6">
+                <p class="text-white">{{signupform.lastname.label}}</p>
+                {{signupform.lastname(class_="form-control border-info",placeholder="lastname")}}
+            </div>
+        </div>
+            
+
+
+        <div class="row">
+            
+            <div class="col-6">
+                <p class="text-white"> {{signupform.email.label}}</p>
+                {{signupform.email(class_="form-control border-info",placeholder="email")}}
+            </div>
+
+            <div class="col-6">
+                <p class="text-white">{{signupform.phonenumber.label}}</p>
+                {{signupform.phonenumber(class_="form-control border-info",placeholder="phone number ")}}
+            </div>
+
+        </div>
+
+        <div class="row">
+            
+            <div class="col-6">
+                <p class="text-white">{{signupform.gender.label}}</p>
+                {{signupform.gender(class_="form-control border-info",placeholder="Gender")}}
+            </div>
+               
+                <div class="col-6">
+                    <p class="text-white">{{signupform.Dateofbirth.label}}</p>
+                    {{signupform.Dateofbirth(class_="form-control border-info",placeholder="Date of birth(YYYY-MM-DD)")}}
+                </div>
+            </div>
+
+          <div class="row">
+            <div class="col-6">
+                <p class="text-white">{{signupform.address.label}}</p>
+                {{signupform.address(class_="form-control border-info",placeholder="address")}}
+            </div>
+
+            
+            <div class="col-6">
+                <p class="text-white">{{signupform.state.label}}</p>
+                {{signupform.state(class_="form-control border-info",placeholder="state")}}
+            </div>
+            </div>
+ 
+
+
+
+
+ 
+            
+
+
+            <div>
+                <p class="text-white">{{signupform.password.label}}</p>
+                {{signupform.password(class_="form-control border-info",placeholder="password")}}
+            </div>
+            
+            <div>
+                <p class="text-white">{{signupform.confirm_password.label}}</p>
+                {{signupform.confirm_password(class_="form-control border-info",placeholder="confirm_password")}}
+            </div>
+
+
+            <div>
+              
+                {{signupform.btn(class_="form-control my-3 btn btn-info")}}
+            </div>
+            
+            
+        </form>
+
+    </div>  
+    
+    {%set msg=get_flashed_messages()%}
+    {%if s in msg%}
+    {{s}}
+     {%endif%} 
+    
+</div>   
+{%endblock%}

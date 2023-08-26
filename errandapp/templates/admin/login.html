@@ -1,0 +1,41 @@
+{% extends "user/layout.html"%}
+
+{%block content%}
+
+<p style="background-color: aliceblue;">{{log.firstname}}</p>
+
+<div class="row">
+   <div class="col-6 mx-3 my-5 text-white"> 
+    <h4 style="font-family: 'Times New Roman', Times, serif; text-align: center;">Join our community today and start crossing off your to-do list with ease. You'll be amazed at how much more free time you'll have when you let our team of skilled and friendly helpers take care of the little things. Sign up now and start living your best life!
+</h4> </div>
+  
+ 
+   <div class="col-5 my-5 prof">
+<form action="/admin/dashboard" method="POST">
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    <div class="col-12">
+         <h1 class="text-info" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: center;"> Admin Login</h1>
+         <p class="text-white"> email:</p>
+         <input type="email" name="email" placeholder="email" class="form-control">
+    </div>
+
+    <div class="col-12">
+        <p class="text-white">password</p>
+        <input type="text" name="password" placeholder="password" class="form-control">
+    </div>
+    <div class="my-3">
+              
+        <button class="btn btn-info form-control text-danger"> sign up!</button>
+     </div>
+     
+
+</form>   
+  
+              
+         
+    
+   </div>
+    
+
+</div>
+{%endblock%}

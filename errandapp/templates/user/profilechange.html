@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+   
+    <meta name="author">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="../../static/fontawesome/css/all.css">
+    <link rel="icon" href="{{url_for('static', filename = 'favicon/favicon-32x32.png')}}">
+    <link rel="stylesheet" href="../../static/project.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='animate.min.css')}}">
+    <title></title>
+    <style>
+
+     .pro-details{
+        max-width:600px;
+        padding:20px;
+        margin:0px auto;
+        border:1px solid lightgray;
+     }
+
+
+    [type="text"]{
+        height:40px;
+        padding:5px;
+    }
+
+    
+.update-btn{
+    background-color:blueviolet;
+    color:white;
+}
+
+</style>
+</head>
+<body>
+
+
+    <div id="banner">
+        <div id="overlay">
+  
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="mx-5 d-block d-sm-block d-md-block d-lg-block"> 
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"  aria-controls="offcanvasExample"> <i class="fa-solid fa-bars"></i></button>
+                              
+                         </div>
+                    <div class="container-fluid  mx-5 g-5">
+                       
+                        
+
+
+                      <a class="navbar-brand text-white mx-5" href="#"> LOGO</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav  mx-5 d-flex" >
+                          <a class="nav-link active  text-white mx-2  effect" aria-current="page" href="/index"> Home</a>
+                          <a class="nav-link text-white mx-2 effect" href="">  About </a>
+                          <a class="nav-link text-white mx-2 effect" href="#"> Contact Us</a>
+                          <a class="nav-link text-white mx-2 effect">FAQs</a>
+                          
+
+                          <a class="nav-link text-white mx-2 effect" href="#ment">category</a>
+                          <a class="nav-link text-white mx-2 effect" href="/login/">Login</a>
+                          <a class="btn btn-outline-info mx-5" href="/signup">register</a>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+        </div>
+
+
+
+             <!--start-->
+                <div class="row">
+                    <div class="col-md">
+                        <div class='pro-details mt-5 mb-5 prof'>
+                            <form method='POST' action='' enctype='multipart/form-data'>
+                                <input type='hidden' name='csrf_token' value='{{csrf_token()}}'>
+                                  
+                                    <h3 class='mt-5 text-white'>Profile Page</h3>
+                                    <div>
+                                        <label for='fullname' class="text-white">Frstname</label>
+                                        <input type="text" name ='fullname' id='fullname' value='{{userdeets.firstname}}' class="mt-1 form-control">
+                                    </div>
+                                    
+                                        <h5 class="mt-1 text-white">Choose your display name</h5>
+                                        <h6 class="mb-3 text-white">This name appears next to your profile photo.</h6>
+    
+                                    <div>
+                                        <label for='pix' class="text-white">Display Picture</label>
+                                        <input type='file' name='pix' id='pix' Class='mt-1 text-white form-control'>
+                                    </div>
+                                    <button type='submit'class='btn btn-info mt-3 mb-4 col-12'>Update Profile</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            <!--end-->
+
+
+
+
+
+
+
+      <div class="bg-dark">
+          <div class="row d-sm-flex">
+              <div class="col-md-2">
+                  <h3>Company</h3>
+                  <a href="./index.html">
+                      <p>Home</p>
+                  </a>
+                  
+                  </a>
+                  <a href="">
+                      <p>Partner With Us</p>
+                  </a>
+                  <a href="about-us.html">
+                      <p>About Us</p>
+                  </a>
+
+
+
+
+              </div>
+              <div class="col-md-3">
+                  <h3>Legal</h3>
+                  <a href="./policies.html">
+                      <p>Privacy Policy</p>
+                  </a>
+                  <a href="./terms.html">
+                      <p>Terms of Service</p>
+                  </a>
+              </div>
+              <div class="col-md-3">
+                  <h3>Help</h3>
+                  <a href="./faq.html">
+                      <p>FAQ</p>
+                  </a>
+                  <a href="./contactus.html">
+                      <p>Contact us</p>
+                  </a>
+                  <!-- <a href=""> <p>Feedbacks</p></a> -->
+              </div>
+              <div class="col-md-3">
+                  <h3>Connect With Us</h3>
+
+                  <p> <a href="" style="color:white;"> <img src="./assets/img/fb.svg"
+                              alt=""> Facebook</a>
+                  </p>
+                  <p> <a href="" style="color:white;"> <img src="./assets/img/ig.svg"
+                              alt=""> Instagram</a>
+                  </p>
+                  <p> <a href="" style="color:white;"> <img
+                              src="" alt=""> Linkedin</a>
+                  </p>
+                  <p> <a href="" style="color:white;"> <img
+                              src="" alt=""> Twitter</a>
+                  </p>
+                  \
+              </div>
+          </div>
+              <div class="row">
+                <div class="col-md-3">
+                    <h3>Rider app</h3>
+                    <div class="row-md g-lg-2 d-sm-flex">
+                        <a href=""><img src="" alt=""
+                                class="download-buttons col-md-6 col-md-3 me-sm-2"></a>
+                         <a href="#"><img src="" alt="" class="download-buttons col-md-6 col-md-3"></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h3>Vendor app</h3>
+                    <div class="row-md d-sm-flex">
+                        <a href=""><img
+                                src="." alt="" class="download-buttons col-md-6 me-sm-2"></a>
+                        <a href=""> <img src=" alt="" class="download-buttons col-md-6"></a>
+                    </div>
+                </div>
+            </div>
+      </div>
+
+  
+
+
+  </div>
+
+
+
+
+{%block js%}
+  <script src="/static/bootstrap/js/bootstrap.bundle.js"> </script>
+</body>
+
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas-header">
+  <h5 class="offcanvas-title" id="offcanvasExampleLabel">My Portfolio</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body bg-dark">
+  <div>
+    <div class="col lie"> 
+         <img src="picture/pic.png" class="true">
+         
+    </div> 
+   
+   <div class="text-center my-2"> <h4 class="text-white">Ojo Oluwasegun </h4> </div>
+   
+   
+    <div class="text-center my-3">
+      <i class="fa-brands  fa-2x fa-twitter text-info mx-2"></i>
+      <i class="fa-brands  fa-2x fa-instagram text-info mx-2"></i>
+      <i class="fa-brands fa-2x  fa-facebook text-info mx-2"></i>
+      <i class="fa-brands fa-2x fa-linkedin text-info mx-2"></i>
+      <i class="fa-brands fa-2x  fa-github  text-info mx-2"></i>
+      <i class="fa-brands fa-2x  fa-google  text-info mx-2"></i>
+    </div>
+    
+    
+    <div>
+    <div class="px-3">
+    
+      <a href="#one" class="drip">   <i class="fa-solid fa-2x fa-house my-2 look"></i> <span class="text-white"> Home</span> </a> <br>
+         
+       <a href="#two" class="drip">  <i class="fa-solid fa-2x fa-user my-2 look"></i> <span class="text-white"> About</span> </a> <br>
+         
+        <a href="#three" class="drip"> <i class="fa-solid  fa-2x fa-file my-2 look"></i> <span class="text-white"> Resume</span></a> <br>
+         
+       <a href="#four" class="drip">  <i class="fa-thin fa-2x fa-image-portrait my-2 look"></i> <span class="text-white">Portfolio</span> </a> <br>
+         
+         <a href="#five" class="drip"> <i class="fa-regular fa-2x fa-bell-concierge my-2 look"> </i> <span class="text-white">services</span> </a><br> 
+         
+        <a href="#six" class="drip"> <i class="fa-sharp   fa-2x  fa-solid fa-address-book my-2 look"></i> <span class="text-white"> contact</span> </a>
+         
+    </div>
+  </div>
+   
+</div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.bundle.js"> </script>
+</body>
+
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas-header">
+<h5 class="offcanvas-title" id="offcanvasExampleLabel">My Portfolio</h5>
+<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body bg-dark">
+<div>
+  <div class="col lie"> 
+       <img src="picture/pic.png" class="true">
+       
+  </div> 
+ 
+ <div class="text-center my-2"> <h4 class="text-white">Ojo Oluwasegun </h4> </div>
+ 
+ 
+  <div class="text-center my-3">
+    <i class="fa-brands  fa-2x fa-twitter text-info mx-2"></i>
+    <i class="fa-brands  fa-2x fa-instagram text-info mx-2"></i>
+    <i class="fa-brands fa-2x  fa-facebook text-info mx-2"></i>
+    <i class="fa-brands fa-2x fa-linkedin text-info mx-2"></i>
+    <i class="fa-brands fa-2x  fa-github  text-info mx-2"></i>
+    <i class="fa-brands fa-2x  fa-google  text-info mx-2"></i>
+  </div>
+  
+  
+  <div>
+  <div class="px-3">
+  
+    <a href="#one" class="drip">   <i class="fa-solid fa-2x fa-house my-2 look"></i> <span class="text-white"> Home</span> </a> <br>
+       
+     <a href="#two" class="drip">  <i class="fa-solid fa-2x fa-user my-2 look"></i> <span class="text-white"> About</span> </a> <br>
+       
+      <a href="#three" class="drip"> <i class="fa-solid  fa-2x fa-file my-2 look"></i> <span class="text-white"> Resume</span></a> <br>
+       
+     <a href="#four" class="drip">  <i class="fa-thin fa-2x fa-image-portrait my-2 look"></i> <span class="text-white">Portfolio</span> </a> <br>
+       
+       <a href="#five" class="drip"> <i class="fa-regular fa-2x fa-bell-concierge my-2 look"> </i> <span class="text-white">services</span> </a><br> 
+       
+      <a href="#six" class="drip"> <i class="fa-sharp   fa-2x  fa-solid fa-address-book my-2 look"></i> <span class="text-white"> contact</span> </a>
+       
+  </div>
+</div>
+ 
+</div>
+</div>
+{%endblock%}
+</body>
+</html>

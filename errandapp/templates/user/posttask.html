@@ -1,0 +1,67 @@
+{%extends "user/layout.html"%}
+
+{%block content%} 
+
+ <h1 style="text-align: center; margin-left: -120px;"  class="text-white my-5"> Post Task here</h1>
+<form action="" method="POST">
+    
+       
+
+
+
+       <div class="row">
+        <div class="col-3"></div>
+       <div class="col-5 ">
+        <p class="text-white">Category</p>
+        <select name="category" class="form-control">
+            {% for cat in c %}
+            <option value="{{cat.cat_id}}">  {{cat.cat_name }}</option>
+            {% endfor %}
+       </select>
+    </div>
+
+    
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}"> 
+    <div class="row">
+        <div class="col-3"></div>
+       <div class="col-5 mx-2">
+        <p class="text-white">Title</p>
+           <input type="text" name="title" class="form-control">
+           
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+       <div class="col-5 mx-2">
+        <p class="text-white">Description</p>
+          <textarea  class="form-control" name="description" placeholder="description"></textarea>
+      
+       </div>
+    </div>  
+    
+    <div class="row">
+        <div class="col-3"></div>
+   
+       <div class="col-5 mx-2">
+        <p class="text-white">task amount</p>
+        <input type="text" name="task_amount"  class="form-control">
+    
+     </div>
+    </div>  
+ 
+
+    <div class="row">
+        <div class="col-3"></div>
+   
+       <div class="col-5 mx-2">
+       <button class="btn btn-info form-control my-4"> Post Task</button>
+    
+     </div>
+    </div> 
+   
+</form>
+
+ {%endblock%}
+
+
+

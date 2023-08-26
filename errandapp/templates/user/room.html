@@ -1,0 +1,77 @@
+{% extends "user/base.html"%}
+
+{%block content%}
+<div class="message-box">
+    <h2> chat room: {{code}}</h2>
+
+
+    <ul>
+        <div id="messages"></div>
+     </ul>
+
+  <div id="inputs">
+      <form id="form" action="" method="GET">
+        <input type="text" autocomplete="off" class="border col-11" placeholder="message" name="message" id="message"/>
+        <button class="btn btn-primary" type="button" name="send" id="send-btn" onClick="sendMessage()">Send</button>
+      </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+     
+    var socketio=io();
+    const messages=document.getElementById("messages")
+
+    const createMessage=(name, msg)=> {
+        const content=`
+          <div>
+              <span> 
+
+                <span class="muted"> 
+                    ${new Date().toLocaleString()} 
+                 </span>
+
+                 <span> 
+                     
+                    <strong> ${name} </strong>: <span class="text-primary fs-5 ">${msg} </span>
+                 </span>
+
+                
+
+
+            </span>
+
+
+        </div>
+        `;
+        
+        messages.innerHTML +=content;
+    };
+       socketio.on("message",(data)=> {
+       createMessage(data.name, data.message);
+       
+    });
+
+     function sendMessage(){
+        
+       const message=document.getElementById("message")
+       if( message.value=="") return;
+       socketio.emit("message",{data: message.value});
+       message.value="";
+    };
+
+
+
+
+
+
+</script>
+{% for msg in messages %}
+<script type="text/javascript">
+    createMessage("{{msg.name}}", "{{msg.message}}");
+     
+</script>
+{%endfor%}
+
+{%endblock%}

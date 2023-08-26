@@ -1,0 +1,49 @@
+{% extends 'user/base.html'%}
+
+{% block content %}
+
+<form method="post">
+<div class="row">
+  <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+ <div class="col-4"></div>
+<div class="col-7">
+    <h2>Enter Chat Room</h2>
+      <div class="col-4">
+          <label> name :</label>
+          <input type="text" name="name" placeholder="pick a name" value="{{name}}" class="form-control"/> 
+      </div>
+
+      <div class="join col-4">
+          <lable> room code : {{roomy}}</lable>
+          <input type="text" name="code" placeholder="room code" value="{{code}}" class="form-control"/> 
+          <button type="submit" name="join" class="btn btn-primary form-control join  my-3"> join a room </button>
+
+      </div>
+    <div class="col-4">
+      <button  type="submit" name="create" class=" btn btn-info form-control my-3"> create a room</button>
+
+    </div>
+
+  
+    </form>
+   <div class="col-4">
+    {%if error%} 
+    <p class="alert alert-info"> {{error}}</p>
+    {% endif %}
+  </div>
+</div>
+
+</div>
+
+{%endblock%}
+
+<script src="../../static/jquery.js"></script>
+<script type="text/javascript">
+     $(document).ready(function(){
+       $("")
+     })
+
+
+
+</script>

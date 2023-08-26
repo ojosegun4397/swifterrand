@@ -1,0 +1,62 @@
+{%extends "user/layout.html"%}
+
+{%block content%} 
+
+
+<form action="/profile/log" method="POST">
+   <div class="row my-5">
+    <div class="row">
+        <div class="col-4"></div>
+           <div class="col-5"> 
+    <h1 class="mx-5 text-white">update task</h1>
+     </div>   
+</div>
+
+        <input type="hidden"  name="csrf_token" value="{{csrf_token()}}">
+
+    <div class="row">
+        <div class="col-3"></div>
+           <div class="col-5"> 
+          <input type="text" value="{{p.task_title}}" name="title" class="form-control my-3">
+        </div>   
+    </div>
+ 
+    <div class="row">
+       <div class="col-3"></div>
+       <div class="col-5"> 
+          <textarea name="description" class="form-control my-3">{{p.description}} </textarea>
+       </div>
+    </div>
+
+    <div class="row">
+       <div class="col-3"></div>
+       <div class="col-5"> 
+          <input type="text" value="{{p.task_amount}}" name="amount" class="form-control my-3"> <br>
+        </div>
+    </div>
+
+   
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-5"> 
+            <button class="btn btn-danger form-control "> update! </button>
+         </div>
+     </div>
+        {% set msg =get_flashed_messages(with_categories=True) %}
+        {%for x,y in msg%}
+        {{y}}
+        {%endfor%}
+        
+        
+      
+         
+     </form>
+</div>
+     
+
+
+ </form>   
+
+ {%endblock%}
+
+

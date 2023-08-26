@@ -1,0 +1,173 @@
+{% extends "user/layout.html"%}
+
+{% block content%}
+<div class="row">
+    <div class="col-md text-white my-5">
+        <h1 >User Registration</h1>
+        <hr style="border:5px solid white; ">
+        <h4 class="text-info"> NEW USER REGISTRATION </h4>
+           <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> Please take a few moment to register. 
+            You will need this information to access your account 
+            in the future(*) are the required fields.
+         </p>
+        <hr style="border:5px solid white;">
+
+    </div>
+    
+    
+    <div class="col-md my-5 prof">
+    
+
+        <form action="" method="POST">  
+        
+         
+            {% set msg =get_flashed_messages(with_categories=True)%}
+        {%for m,c in msg%}
+<p class="alert alert-danger">
+   {{c}}
+</p>
+
+{%endfor%}   
+       
+           <input type="hidden" name="csrf_token" value="{{csrf_token()}}"> 
+        <div class="row">
+            <div class="col-5">
+                <p class="text-white">firstname :</p>
+                <input type="text" name="firstname" placeholder="firstname" class="form-control">
+            </div>
+
+            <div class="col-5">
+                <p class="text-white">lastname:</p>
+                <input type="text" name="lastname" placeholder="lastname" class="form-control">
+            </div>
+        </div>
+            
+
+
+        <div class="row">
+            
+            <div class="col-5">
+                <p class="text-white"> email:</p>
+                <input type="email" name="email" placeholder="email" class="form-control">
+            </div>
+
+            <div class="col-5">
+                <p class="text-white">phonenumber</p>
+                <input type="tel" name="phonenumber" placeholder="mobile" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="row">
+            
+            <div class="col-5">
+                <p class="text-white">Gender</p>
+                <select class="form-control" name="gender">
+                    <option value="male"> male</option>
+                    <option value="female">female</option>
+                    <option value="other"> other</option>
+                </select>
+            </div>
+               
+                <div class="col-5">
+                    
+                    <p class="text-white">date of birth</p>
+                    <input type="date" name="dateofbirth" placeholder="YY-MM-DD" class="form-control">
+                </div>
+            </div>
+
+          <div class="row">
+            <div class="col-5">
+                 <p class="text-white">STATE</p>
+                <select id="selstate" name="state" class="form-control">
+                    <option selected>------please select------</option>
+                    {%for x in s%}
+                          <option value="{{x.state_id}}">{{x.state_name}}</option>
+                    {% endfor %}
+                   </select>
+                
+                  
+               </div>
+            
+            <div class="col-5">
+               
+             <p class="text-white">LGA</p>
+
+             <select id="lga" name="lgas" class="form-control"> 
+                <option value=""></option>
+              
+             </select>
+
+            </div>
+            </div>
+ 
+
+
+
+        <div class="row">
+            <div class="col-10">
+                <p class="text-white">Address</p>
+                <input type="text" name="address" placeholder="address" class="form-control">
+            </div>
+        </div>
+            
+
+
+            <div class="col-10">
+                    <p class="text-white">password</p>
+                    <input type="text" name="password" placeholder="password" class="form-control">
+               </div>
+            
+            <div>
+                <div class="col-10">
+                    <p class="text-white">confirm password</p>
+                    <input type="text" name="confirmpassword" placeholder="confirm password" class="form-control">
+            </div>
+
+
+            <div class="my-3 col-10">
+              
+               <button class="btn btn-info form-control text-danger "> sign up!</button>
+            </div>
+              
+
+            <div class="text-center text-white fs-5">
+                <span>You have an account ?</span>
+                <span class="text-info "> <a href="/login/" style="text-decoration: none;">login</a></span>      
+             </div>
+        </form>
+
+    </div>  
+       
+</div>   
+
+
+
+{%endblock%}
+
+
+<script src="../../static/bootstrap/js/bootstrap.bundle.js"> </script>
+<script src="../../static/jquery.js"></script>
+<script type="text/javascript">
+
+ $(document).ready(function(){
+    $("#selstate").change(function(){
+      //retrieve the state that was selected 
+      var state=$(this).val()
+     
+      var data2send="stateid="+state
+    
+      $.get('/show_lga', data2send, function(response){
+       
+        $("#lga").html(response)  
+
+      })
+
+
+    })
+
+ })
+
+
+
+</script>
